@@ -1,0 +1,34 @@
+#body{
+    margin: 0%;
+    padding: 0%;
+    overflow: auto;
+    background-color: #000000;
+}
+#upper-menu{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    background-color: white;    
+}
+#upper-menu label{
+    font-family: Arial;
+    font-size: 14px;
+}
+#stroke-div{
+    padding-left: 0.5%;
+    border: 1px solid purple;
+    margin-left: 1%;
+}
+#line-div{
+    padding-left: 0.5%;
+    border: 1px solid purple;
+    margin-left: 2%;
+}
+#mode-change{
+    padding-left: 1%;
+    border: 1px solid purple;
+    margin-left: 2%;
+}
+#canvas-section{
+    border: 2px green solid;
+}
