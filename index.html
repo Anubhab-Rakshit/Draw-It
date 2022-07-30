@@ -22,7 +22,9 @@
     </head>
     <body id="body">
         <section id="main-container">
+            <div id="toolbar">
             <div id="upper-menu">
+                
                 <div id="stroke-div">
                <span class="label label-primary"> <label  for="stroke">
                 <button id="pen-draw" onclick="pen()" class="btn btn-default">
@@ -37,10 +39,9 @@
                         <path d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414l-3.879-3.879zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z"/>
                       </svg></button>
                 <div id="line-div">
-                <label for="width">Line Width</label>
-               <button id="decrease" onclick="width_decrease()" class="btn btn-default" name="decrease">-</button>
-                <input type="text" id="width" value="5" name="width">
-                <button id="increase" onclick="width_increase()" class="btn btn-default" name="increase">+</button>
+                <label for="width">Line Width And  <br>Eraser Width:- </label>
+                <input type="range" id="width" min="1" max="100" value="5">
+               
                  </div>
                  <button id="undo" onclick="undo()" class="btn btn-default">Undo</button>
                 
@@ -48,11 +49,10 @@
               
                 <button id="clear" class="btn btn-default" name="clear">Clear Page</button>
                 <div id="mode-change">
-                    <label for="mode">Your Display Mode:- </label>
-                    <select id="mode" onchange="mode_change()">
-                       <option >Light</option>
-                        <option>Dark</option> 
-                    </select>
+                   
+                    <label for="for_bg">Background-color:-</label>
+                    <input type="color" onchange="change_bg()" id="for_bg" value="#FFFFFF">
+                </div>
                 </div>  
                 </div>
               
@@ -60,18 +60,8 @@
                 <script src="script.js"></script>
         </section>
         <script type="text/javascript">
-            function mode_change(){
-             var m=document.getElementById('mode');
-         var option = m.options[m.selectedIndex];
-                let c=option.text;
-            if(c=="Light"){
-                document.getElementById('body').style.backgroundColor='white'
-            }
-            if(c=="Dark"){
-                document.getElementById('body').style.backgroundColor='black'
-            }
-        }
-        mode_change()
+         
+     
            window.html2canvas= html2canvas
            window.jsPDF=window.jspdf.jsPDF
            function save_mode(){
@@ -92,6 +82,7 @@
                 }
                 
            }
+           
         </script>
         <style>
         #decrease:hover,#increase:hover,#clear:hover,#save_canvas:hover,#stroke_div:hover,#width:hover,#eraser:hover,#undo:hover{
@@ -100,6 +91,9 @@
         }
         #des-foot{
             text-align: center;
+            background-color: white;
+            margin-left: 30%;
+            margin-right: 30%;
         }
             </style>
         <footer>
