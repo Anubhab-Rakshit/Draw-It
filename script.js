@@ -16,16 +16,19 @@ let is_e=false
 let s_y
 let skeep
 let restore_data=[]
-var md=document.getElementById('mode');
-var options = md.options[md.selectedIndex];
-let md_val=options.text;
+
 let i=-1
 ct.lineWidth=l_width
 ct.strokeStyle="#ff0000"
 document.getElementById('custom-color').style.fill="#ff0000"
 tool.addEventListener('click' , f => {
     if(f.target.id == 'clear'){
-        ct.clearRect(0,0,c.width,c.height)
+        ct.beginPath()
+        ct.fillStyle=document.getElementById("for_bg").value
+        ct.rect(0,0,c.width,c.height)
+        ct.fill()
+        ct.closePath()
+        ct.strokeStyle=document.getElementById("stroke").value
     }    
 })
 tool.addEventListener('change' , e => {
@@ -44,12 +47,11 @@ function draw(e){
     if(!isP){
         return
     }
-    ct.strokeStyle=skeep
+    ct.strokeStyle=document.getElementById("stroke").value
     ct.lineWidth=l_width
     ct.lineCap="round"
     ct.lineTo(e.clientX,e.clientY)
     ct.stroke()
-    
     ct.moveTo(e.clientX , e.clientY)
     s_x=e.clientX
     s_y=e.clientY
@@ -146,8 +148,7 @@ function eraser(){
             return
         }
     
-        ct.strokeStyle="white"
-    
+        ct.strokeStyle=document.getElementById("for_bg").value
         ct.lineWidth=20
         ct.lineCap="round"
         ct.lineTo(e.clientX,e.clientY)
@@ -157,7 +158,6 @@ function eraser(){
      c.addEventListener('mouseup' , (e) => {
         is_e=false
         ct.closePath()
-
      })
      c.addEventListener('mousedown' , (e) => {
         is_e=true
@@ -173,4 +173,12 @@ function undo(){
         restore_data.pop()
         ct.putImageData(restore_data[i],0,0)
     }
+}
+function change_bg(){
+    ct.beginPath()
+    ct.fillStyle=document.getElementById("for_bg").value
+    ct.rect(0,0,c.width,c.height)
+    ct.fill()
+    ct.closePath()
+    ct.strokeStyle=document.getElementById("stroke").value
 }
