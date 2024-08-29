@@ -1,0 +1,200 @@
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    height: 100vh;
+    width: 100%;
+}
+#loader_frame{
+    width: 100%;
+    height: 100%;
+    align-content: last baseline;
+    background-color: black;
+    z-index: 1000;
+    position: relative;
+}
+#loader_animation{
+    position: absolute;
+    bottom: 2px;
+    left: 45%;
+    transform: translateX(-40%);
+    border: 8px dotted whitesmoke;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spinner 1s linear infinite;
+}
+#boxframe{
+    width: 100%;
+    height: 100%
+}
+
+@keyframes spinner{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+ 
+#name{
+    width: 100%;
+    justify-content: center;
+    padding: 5px;
+    align-content: center;
+    text-align: center;
+    background-image: linear-gradient(to right, red , green , yellow );
+    
+}
+.name{
+    display: none;
+}
+#name h3{
+    align-self: center;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color: whitesmoke;
+    letter-spacing: normal;
+    transition: letter-spacing 0.2s ease-in-out;
+}
+#name h3:hover{
+    font-size: larger;
+    letter-spacing: 3px;
+}
+
+#toolbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    display: none;
+}
+
+#toolbar button, 
+#toolbar input[type="color"] {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+#toolbar button:hover, 
+#toolbar input[type="color"]:hover {
+    background-color: rgba(245,245,245,0.5);
+}
+/*
+document.getElementById('colorChooser_bg').addEventListener('change', (e) => {
+    color_bg = e.target.value;
+    ctx.fillStyle=color_bg;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+});
+
+*/
+#label_colorchooser,#label_colorchooser_bg{
+    font-size: large;
+    color: white;
+    border: none;
+    background-color: #555;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#label_colorchooser:hover,#label_colorchooser_bg:hover{
+    background-color: rgba(245,245,245,0.5);
+}
+canvas {
+    border: none;
+    background-color: black;
+    width: 100vw;
+    height: 80%;
+    box-sizing: border-box;
+}
+
+
+.prompt-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.prompt-box {
+    background-color: wheat;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 30px 50px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+}
+
+.prompt-box p.heading{
+    font-size: larger;
+}
+
+.prompt-box input {
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.prompt-box button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.prompt-box button.create-btn ,.prompt-box button.back-btn{
+    background-color: grey; 
+    color: white;
+    transition: font-size 0.1s ease-in-out;
+}
+
+.prompt-box button.create-btn:hover ,.prompt-box button.back-btn:hover{
+    background-color: black;
+    font-size: large;
+}
+
+#copyright_div{
+    width: 100%;
+    height: 4%;
+    text-align: center;
+}
+#copyright_div p.copyright{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+    #toolbar {
+        flex-wrap: wrap;
+    }
+
+    #toolbar button, 
+    #toolbar input[type="color"] {
+        flex: 1 1 45%;
+        margin: 5px 0;
+    }
+    canvas{
+        width: 100%;
+    }
+}

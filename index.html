@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anubhab Rakshit">
+    <meta name="description" content="Unleash your creativity on Drop Ink">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="icon.png" type="image/png">
+    <title>Drop Ink!</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="loader_frame">
+        <div id="loader_animation"></div>
+    </div>
+    <div class="name" id="name">
+        <h3>DROP INK!</h3>
+    </div>
+    <div class="toolbar" id="toolbar">
+        <button id="pen">Pen</button>
+        <button id="eraser">Eraser</button>
+        <button id="undo">Undo</button>
+        <button id="clear">Clear</button>
+        <label for="colorChooser" id="label_colorchooser">Pen Color</label>
+        <input type="color" id="colorChooser" title="Choose Color">
+        <label for="colorChooser_bg" id="label_colorchooser_bg">Background Color</label>
+        <input type="color" id="colorChooser_bg" title="Choose Color">
+        <button id="save">Save</button>
+    </div>
+    <div class="prompt-overlay" id="prompt-overlay">
+        <div class="prompt-box">
+            <p class="heading">Enter Image name </p>
+            <input type="text" id="prompt-input" />
+            <div>
+                <button class="create-btn" onclick="submitPrompt()">Create</button>
+                <button class="back-btn" onclick="closePrompt()">Back</button>
+            </div>
+        </div>
+    </div>
+    <canvas id="canvas" class="canvas_hidden"></canvas>
+
+    <div id="copyright_div">
+        <p class="copyright">&copy; Made by Anubhab Rakshit</p>
+    </div>
+    <script src="script.js" id="canvas_script"></script>
+    <script>
+    window.addEventListener("load",() =>{
+    setTimeout(() =>{
+        document.getElementById('loader_animation').style.display="None"
+        document.getElementById('loader_frame').style.display="None"
+        document.getElementById("name").classList.remove("name");
+        document.getElementById("toolbar").classList.remove("toolbar");
+        document.getElementById("toolbar").style.display="flex";
+        document.getElementById("name").style.display="block";
+        document.getElementById("canvas").style.display="block";
+        const canvas_control=document.getElementById("canvas")
+        canvas_control.style.backgroundColor="white";
+        const ctx=canvas_control.getContext("2d")
+        ctx.fillStyle="#ffffff"
+        ctx.fillRect(0,0,canvas.width,canvas.height)
+        canvas_control.style.margin="20px"
+        canvas_control.style.border="2px solid #333";
+        div1=document.getElementById("loader_frame")
+        if (div1)
+        {
+            div1.remove()
+        }
+    },2000)
+}
+)
+</script>
+</body>
+</html>
+
